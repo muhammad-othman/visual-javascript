@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Sign-up</title>
+        <script src="js/jquery-3.1.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+<link rel="icon" href="img/favicon.ico">
+        <script src="js/cookies.js"></script>
+        <script src="js/script.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body id="sign">
+        <div id="menu-div" >
+             <ul>
+                <li><a style="padding:5 30;" href="index.html"><img id="ico" src="img/vjs.png" style="width:63px;height:49;"></a></li>
+                <li><a href="visualize.html">Visualize</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Examples</a>
+                    <div class="dropdown-content">
+                        <a href="factorial_while_loop.html">Factorial - while loop</a>
+                        <a href="factorial_for_loop.html">Factorial - for loop</a>
+                        <a href="factorial_recursive.html">Factorial - recursive</a>
+                    </div>  
+                </li>
+                <li><a href="about.html">about-us</a></li>
+            </ul>
+        </div>
+        <div class="cont">
+
+        <form action="visualize.html" onsubmit="set_cookie();">
+            <div id="form_dv" class="">
+                <div id="name_dv">
+                    <label for="name_bx">Name</label>
+                    <input id="name_bx"required placeholder=" required" type="text" required/>
+                </div>
+            <div id="mail_dv">
+                <label for="mail_bx">E-mail</label>
+                <input id="mail_bx" placeholder=" required" type="text" required/>
+            </div>
+            <div id="mobile_dv" >
+                <label for="mobile_bx">Mobile </label>
+                <input id="mobile_bx" type="text" placeholder=" optional"/>
+            </div>
+            <div style="text-align:center;">
+                <div id="submit_dv">
+                    <input id="submit_btn" type="submit" class="sub-btn" value="Submit" >
+                </div>
+            </div>
+            
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

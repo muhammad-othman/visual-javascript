@@ -1,0 +1,927 @@
+<html>
+<head>
+	<title>Visual Java Script</title>
+
+    <script src="jquery-3.1.1.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="scripting.js"></script>
+    
+    <script type="text/javascript" src="jsfuns.js"></script>
+    <script type="text/javascript" src="structure.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        #menu-div{ font-size: 20px; padding-bottom: 20px; }
+    </style>
+<link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+
+    <div id="menu-div" >
+            <ul>
+                <li><a style="padding:5 30;" href="index.html"><img id="ico" src="img/vjs.png" style="width:63px;height:49;"></a></li>
+                <li><a href="visualize.html">Visualize</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Examples</a>
+                    <div class="dropdown-content">
+                        <a href="factorial_while_loop.html">Factorial - while loop</a>
+                        <a href="factorial_for_loop.html">Factorial - for loop</a>
+                        <a href="factorial_recursive.html">Factorial - recursive</a>
+                    </div>
+                </li>
+                 <li><a href="about.html">about-us</a></li>
+                <li style="width:50px;height:10px;"></li>
+                
+                <li>
+                    <a id="exec-button" onclick='go_ahead();'>Execute</a>
+                </li>
+                <li>
+                    <a id="next-button" style="display:none;" onclick='animate_me();'>Next Step</a>
+                </li>
+                <li>
+                    <a id="stop-button" style="display:none;" onclick='go_back();'>Stop Execution</a>
+                </li>
+                <li>
+                    <a id="auto-button" style="display:none;" onclick='automatic();'>Automatic Execution</a>
+                </li>
+                <li>
+                    <input id="automatic-speed" type='range' min='1' max='1000' value='100' style="display:none;" onchange='SPEED=1010-parseInt(this.value);'>
+                </li>
+            </ul>
+        </div>
+    <div class="banner"></div>
+
+    <div class="container">
+
+        <div class="tool-box">
+
+            <div class="block-type">
+                <table cellspacing='10'>
+                    <tr>
+                        <td id="condition" class="choice">
+                            <div style="width: 5; height: 15; display: inline-block" class="color-red"></div>
+                            <span class="text">Condition</span>
+                        </td>
+                        <td id="function" class="choice">
+                            <div style="width: 5; height: 15; display: inline-block" class="color-green"></div>
+                            <span class="text">Function</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="statement" class="choice">
+                            <div style="width: 5; height: 15; display: inline-block" class="color-yellow"></div>
+                            <span class="text">Statement</span>
+                        </td>
+                        <td id="variable" class="choice">
+                            <div style="width: 5; height: 15; display: inline-block" class="color-blue"></div>
+                            <span class="text">Variable</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <hr width='75%' style="color: gray"/>
+
+            <div class="scroller">
+                <div class="condition if template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container" ><span class="text vertical-align" >if</span></div></td>
+                            <td class="color-red">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"></span>
+                                    <span class="text vertical-align"><div class="block sortable one accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                                    <span class="text vertical-align"></span>
+                                    <span class="text vertical-align"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block"></div></td>
+                            <td class="transparent-cell"><div class="block sortable" style="height: auto"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container"><span class="text vertical-align" ></span></div></td>
+                            <td class="color-red"><div class="block"></div></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="condition if-else template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container" ><span class="text vertical-align" >if</span></div></td>
+                            <td class="color-red">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"></span>
+                                    <span class="text vertical-align"><div class="block sortable one accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                                    <span class="text vertical-align"></span>
+                                    <span class="text vertical-align"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block"></div></td>
+                            <td class="transparent-cell"><div class="block sortable" style="height: auto"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container"><span class="text vertical-align" >else</span></div></td>
+                            <td class="color-red round"><div class="block"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block"></div></td>
+                            <td class="transparent-cell"><div class="block sortable" style="height: auto"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container"><span class="text vertical-align" ></span></div></td>
+                            <td class="color-red"><div class="block"></div></td>
+                        </tr>
+                    </table>
+                </div>               
+
+                <div class="condition while-do template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container" ><span class="text vertical-align" >while</span></div></td>
+                            <td class="color-red">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"></span>
+                                    <span class="text vertical-align"><div class="block sortable one accept-variable accept-value accept-statement" style="height: auto"></div></span>
+                                    <span class="text vertical-align"></span>
+                                    <span class="text vertical-align"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block"></div></td>
+                            <td class="transparent-cell"><div class="block sortable" style="height: auto"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container"><span class="text vertical-align" ></span></div></td>
+                            <td class="color-red"><div class="block"></div></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="condition for template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-red"><div class="block vertical-align-container" ><span class="text vertical-align" >for</span></div></td>
+                            <td class="color-red">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><div class="block sortable one initialization accept-variable accept-value accept-statement" style="height: auto"></div></span>
+                                    <span>&nbsp;</span>
+                                    <span class="text vertical-align"><div class="block sortable one condition accept-variable accept-value accept-statement" style="height: auto"></div></span>
+                                    <span>&nbsp;</span>
+                                    <span class="text vertical-align"><div class="block sortable one incrementation accept-variable accept-value accept-statement" style="height: auto"></div></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block"></div></td>
+                            <td class="transparent-cell"><div class="block sortable" style="height: auto"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-red"><div class="block"></div></td>
+                            <td class="color-red"><div class="block"></div></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="variable template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-blue round-left"><div class="block vertical-align-container" ><span class="text vertical-align" >var</span></div></td>
+                            <td class="color-blue">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable"/></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="global variable template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-blue round-left"><div class="block vertical-align-container" ><span class="text vertical-align" >global</span></div></td>
+                            <td class="color-blue">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable"/></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="value template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-blue round-left"><div class="block vertical-align-container" ><span class="text vertical-align" >value</span></div></td>
+                            <td class="color-blue">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><input type="text" size="10" placeholder="    " class="editable"/></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="parameter template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-blue round-left"><div class="block vertical-align-container" ><span class="text vertical-align" >param</span></div></td>
+                            <td class="color-blue">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable"/></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="function template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-green"><div class="block vertical-align-container" ><span class="text vertical-align" >function</span></div></td>
+                            <td class="color-green">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable"/></span>
+                                    <span>&nbsp;</span>
+                                    <span class="text vertical-align"><div class="block sortable many accept-parameter" style="height: auto"></div></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-green"><div class="block"></div></td>
+                            <td class="transparent-cell"><div class="block sortable" style="height: auto"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="color-green"><div class="block"></div></td>
+                            <td class="color-green"><div class="block"></div></td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+                <div class="return template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-green round-left">
+                                <span class="text vertical-align"> return </span>
+                            </td>
+                            <td class="color-green">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="equal statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> = </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="plus statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> + </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="minus statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> - </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="multiply statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> * </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="divide statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-value accept-statement accept-function accept-parameter" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> / </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-variable accept-value accept-statement accept-function accept-parameter" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="increment statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> ++</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="decrement statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> -&nbsp;-</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="plus-equal statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> += </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="minus-equal statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> &minus;</span><span class="text vertical-align">=</span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="multiply-equal statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> *= </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="divide-equal statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> /= </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="modulus statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> % </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="index statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-function accept-variable" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> [ </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> ] </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+                <div class="logical-less statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> &lt; </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="logical-greater statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> &gt; </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="logical-or statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one  accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> || </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="logic-equal statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> =&nbsp;= </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="logical-and statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"> &amp;&amp; </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="logical-not statement template table" style="height: auto">
+                    <table class="round-right">
+                        <tr>
+                            <td class="color-yellow round-left">
+                                <span class="text vertical-align"> ! </span>
+                            </td>
+                            <td class="color-yellow">
+                                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function" style="height: auto"></div></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="function-call-template">
+                    <table class="round-right" style="display: none">
+                        <tr>
+                            <td class="color-green round-left"><div class="block vertical-align-container" ><span class="text vertical-align" >global</span></div></td>
+                            <td class="color-green">
+                                <div class="vertical-align-container">
+                                    <span class="text vertical-align"><div class="block sortable right accept-function accept-statement accept-variable accept-value" style="height: auto"></div></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>     
+
+            </div>
+
+
+        </div>
+
+<div class="function" name="__global">
+    <div class="inner-context a0 function-exec"></div>
+</div>
+<div class="scrollDiv">
+    <div class="dropDiv sortable">
+        <div class="function table ui-draggable ui-draggable-handle" style="height: auto; display: table; width: auto; position: static; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-green"><div class="block vertical-align-container"><span class="text vertical-align">function</span></div></td>
+            <td class="color-green">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 51px;" value="factorial"></span>
+                    <span>&nbsp;</span>
+                    <span class="text vertical-align"><div class="block sortable many accept-parameter ui-sortable" style="height: auto"><div class="parameter table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: inline-block; width: auto; position: static; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">param</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 11px;" value="n"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="color-green"><div class="block"></div></td>
+            <td class="transparent-cell"><div class="block sortable ui-sortable" style="height: auto"><div class="equal statement table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: table;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter ui-sortable" style="height: auto"><div class="variable table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: inline-block; width: auto; position: static; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">var</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 9px;" value="r"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> = </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value ui-sortable" style="height: auto"><div class="value table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: inline-block; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">value</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="    " class="editable" style="width: 11px;" value="1"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div><div class="condition while-do table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: table;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-red"><div class="block vertical-align-container"><span class="text vertical-align">while</span></div></td>
+            <td class="color-red">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"></span>
+                    <span class="text vertical-align"><div class="block sortable one accept-variable accept-value accept-statement ui-sortable" style="height: auto"><div class="logical-greater statement table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: table; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="parameter table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block; width: 69px; height: 25px; position: static; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">param</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 11px;" value="n"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> &gt; </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="value table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: inline-block; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">value</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="    " class="editable" style="width: 11px;" value="0"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+                    <span class="text vertical-align"></span>
+                    <span class="text vertical-align"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="color-red"><div class="block"></div></td>
+            <td class="transparent-cell"><div class="block sortable ui-sortable" style="height: auto"><div class="equal statement table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: table; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter ui-sortable" style="height: auto"><div class="variable table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block; width: 57px; height: 25px; position: static; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">var</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 9px;" value="r"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> = </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value ui-sortable" style="height: auto"><div class="multiply statement table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: inline-block; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="variable table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">var</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 9px;" value="r"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> * </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="parameter table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">param</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 11px;" value="n"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div><div class="equal statement table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: table;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter ui-sortable" style="height: auto"><div class="parameter table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block; width: 69px; height: 25px; z-index: 1000; position: static;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">param</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 11px;" value="n"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> = </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value ui-sortable" style="height: auto"><div class="minus statement table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: inline-block; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="parameter table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block; width: 69px; height: 25px; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">param</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 11px;" value="n"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> - </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="value table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block; width: auto; height: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">value</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="    " class="editable" style="width: 11px;" value="1"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></td>
+        </tr>
+        <tr>
+            <td class="color-red"><div class="block vertical-align-container"><span class="text vertical-align"></span></div></td>
+            <td class="color-red"><div class="block"></div></td>
+        </tr>
+    </tbody></table>
+</div><div class="return table ui-draggable ui-draggable-handle ui-sortable-handle" style="height: auto; display: table; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-green round-left">
+                <span class="text vertical-align"> return </span>
+            </td>
+            <td class="color-green">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-variable accept-value accept-statement accept-function ui-sortable" style="height: auto"><div class="variable table ui-draggable ui-draggable-handle ui-sortable-handle" style="display: inline-block; width: 57px; height: 25px; z-index: 1000;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">var</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 9px;" value="r"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></td>
+        </tr>
+        <tr>
+            <td class="color-green"><div class="block"></div></td>
+            <td class="color-green"><div class="block"></div></td>
+        </tr>
+    </tbody></table>
+</div><div class="equal statement table ui-draggable ui-draggable-handle" style="height: auto; display: table; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-yellow round-left">
+                <span class="text vertical-align"><div class="block sortable left one accept-variable accept-parameter ui-sortable" style="height: auto"><div class="variable table ui-draggable ui-draggable-handle" style="height: auto; display: table; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">var</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="name" class="editable" style="width: 18px;" value="ans"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"> = </span>
+            </td>
+            <td class="color-yellow">
+                <span class="text vertical-align"><div class="block sortable right one accept-parameter accept-function accept-statement accept-variable accept-value ui-sortable" style="height: auto"><div class="table ui-draggable ui-draggable-handle function-call" style="display: table;"><table class="round-right"><tbody><tr><td class="color-green round-left"><div class="block vertical-align-container"><span class="text vertical-align">factorial</span></div></td><td class="color-green"><div class="vertical-align-container"><span>&nbsp;</span><span class="text vertical-align"><div class="block sortable function-call many accept-statement accept-variable accept-value accept-function ui-sortable" style="height: auto"><div class="value table ui-draggable ui-draggable-handle" style="height: auto; display: inline-block; width: auto;">
+    <table class="round-right">
+        <tbody><tr>
+            <td class="color-blue round-left"><div class="block vertical-align-container"><span class="text vertical-align">value</span></div></td>
+            <td class="color-blue">
+                <div class="vertical-align-container">
+                    <span class="text vertical-align"><input type="text" size="10" placeholder="    " class="editable" style="width: 18px;" value="5"></span>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div></div></span></div></td></tr></tbody></table></div></div></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+    </div>
+
+</div>
+    </div>
+
+</div>
+    </div>
+
+    <script src="autosize-input.min.js"></script> 
+    <script>
+       autosizeInput(document.querySelector('.editable'));
+    </script> 
+    
+    <span id="arrow"><img src="arrow.png"></span>
+</body>
+</html>

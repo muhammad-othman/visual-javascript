@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Sign-up</title>
+        <script src="js/jquery-3.1.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+
+        <script src="js/cookies.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="icon" href="img/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body id="sign">
+        <div id="menu-div" >
+            <ul>
+                <li><a style="padding:5 30;" href="index.html"><img id="ico" src="img/vjs.png" style="width:63px;height:49;"></a></li>
+                <li><a href="visualize.html">Visualize</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Examples</a>
+                    <div class="dropdown-content">
+                        <a href="factorial_while_loop.html">Factorial - while loop</a>
+                        <a href="factorial_for_loop.html">Factorial - for loop</a>
+                        <a href="factorial_recursive.html">Factorial - recursive</a>
+                    </div>  
+                </li>
+                <li><a href="about.html">about-us</a></li>
+            </ul>
+        </div>
+        <div class="cont">
+
+        <form action="visualize.html" onsubmit="set_cookie();">
+            <div class="about" >
+                <article>
+                <h2> VJS (visual JavaScript) </h2>
+                <hr style="float:left;width:25%;">
+                <br/>               
+                    <p style="width: 538px;">
+                        Vjs will help you write and visualize your code, by providing a puzzle
+                        pieces as your code statements and line by line execution where you can
+                        see the variables at your ram and how their values changes during the execution process 
+                    </p> 
+        <h2> Look how easy it is to use: </h2>
+      <hr style="float:left;width:30%;">
+                    <br/>
+                    <p style="width: 538px;">
+-Just drag and drop the puzzle pieces to construct your program
+	 -use the examples to train yourself on the Vjs
+                        </p>
+                    <br/>   
+                    <h2> Features </h2>
+                <hr style="float:left;width:15%;">
+                     <br/>
+                    
+<p>-Sign up<br/>
+-Drag and drop your code<br/>
+-Line by line execution<br/>
+-Automatic execution and choose the speed you like<br/>
+-Examples:
+    <br/>&nbsp;&nbsp;&nbsp;-while loop
+	<br/>&nbsp;&nbsp;&nbsp;-for loop
+	<br/>&nbsp;&nbsp;&nbsp;-recursive
+                    </p>     
+                </article>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+.sortable{
+		min-width: 20px;
+        min-height: 20px;
+        margin: 0px;
+        height: auto;
+        width: auto;
+}
+.tool-box{
+    height: 500;
+    overflow-y: scroll;
+    float: left;
+    margin-right: 4px;
+    
+}
+.tool-box2{
+    display: none;
+}
+.template{
+		margin: 10px;
+}
+.dropDiv{
+        height: 500;
+        width: 1050;
+        overflow-y: auto;
+        border: 1px dashed green;
+        background-color: lightgrey;
+        margin: 1px;
+        padding: 1px 2px 2px 2px;
+        
+}
+
+
+.dropDiv2{
+    width: 49%;
+    height: 450;
+}
+
+
+.block{
+    min-width: 40;
+    min-height: 20;
+    height: auto;
+    width: auto;
+    margin: 0px;
+    text-align: left;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+table.round-right{
+    border-spacing: 0;
+    cursor: pointer;
+    margin-top: 1px;
+}
+table.round-right tr:first-child td:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
+.round{
+    border-radius: 0px 5px 5px 0px;
+}
+.round-all{
+    border-radius: 5px 5px 5px 5px;
+    margin: 0px;
+}
+.round-left{
+    border-radius: 5px 0px 0px 5px;
+}
+table.round-right tr:last-child td:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
+.color-red{
+    background-color: indianred;
+}
+.color-green{
+    background-color: green
+}
+.color-blue{
+    background-color: dodgerblue;
+}
+ .color-yellow{
+    background-color: goldenrod;
+}
+.text{
+    color: ivory;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 2px;
+}
+.vertical-align{
+	display: table-cell;
+	vertical-align: middle;
+}
+.vertical-align-container{
+	display: table;
+}
+.banner{
+    background-color: green;
+    height: 50px;
+    margin-bottom: 50px;
+}
+.drop-shadow{
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -5px 5px 5px darkslategrey;
+}
+
+.place-holder { 
+    height: 5;
+    width: 40px;
+    background-color: red;
+    opacity: 0.7;
+    border-radius: 2px;
+    display: table-cell;
+	vertical-align: middle;
+}
+.table{
+    display: table;
+}
+.editable{
+    padding-left: 2;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    background-color: lightslategrey;
+    font-size: 12px;
+}
+.accept-function{
+    background-color: lightyellow;
+    border-radius: 4px;
+    padding: 0px 1px 1px 1px;
+}
+.accept-statement{
+    background-color: lightyellow;
+    border-radius: 4px;
+    padding: 0px 1px 1px 1px;
+}
+.accept-parameter{
+    background-color: lightyellow;
+    border-radius: 4px;
+    padding: 0px 1px 1px 1px;
+}
+.accept-value{
+    background-color: lightyellow;
+    border-radius: 4px;
+    padding: 0px 1px 1px 1px;
+}
+.accept-variable{
+    background-color: lightyellow;
+    border-radius: 4px;
+    padding: 0px 1px 1px 1px;
+}
+
+#trash{
+    width:73;
+    height:58;
+    left:1240;
+    top:520;
+    position: absolute;
+    
+}
